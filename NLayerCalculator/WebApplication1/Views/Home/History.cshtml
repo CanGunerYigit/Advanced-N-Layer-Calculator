@@ -1,0 +1,46 @@
+﻿@using CommonLayer.Entities
+@model List<CalculationHistory>
+
+@{
+    ViewBag.Title = "İşlem Geçmişi";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<style>
+    .body {
+        background-color: #444;
+    }
+</style>
+<body>
+    <div class="container">
+        <h2>İşlem Geçmişi</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>First Number</th>
+                    <th>Second Number</th>
+                    <th>Operation</th>
+                    <th>Expression</th>
+                    <th>Result</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Expression</td>
+                        <td>@item.Result</td>
+                        <td>@item.Timestamp</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

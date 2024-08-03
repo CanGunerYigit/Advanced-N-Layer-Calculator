@@ -1,0 +1,76 @@
+﻿@using CommonLayer.Entities
+@model List<CalculationHistory>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Calculator History</title>
+</head>
+<style>
+    body {
+        background-color: #2C2C2C;
+       
+    }
+    .baslik{
+        font-size: 24px;
+        padding-bottom:15px;
+        color:white;
+        justify-content:center;
+        display:flex;
+        
+    }
+    .tbaslik{
+        color:azure;
+    }
+    .telement{
+        color:azure;
+    }
+
+    th, td {
+        border: 2px solid #ffcc00; /* Change this color as desired */
+        padding: 8px; /* Adjust padding for better spacing */
+    }
+
+    th {
+        background-color: #333333; /* Darker background for header */
+       
+    }
+
+    td {
+        background-color: #444444; /* Slightly different background for table cells */
+       
+    }
+
+</style>
+<body>
+  <div class="container">
+        <div class="baslik">
+            <h2>Past Calculations</h2>
+        </div>
+
+        <table class="table table-bordered">
+        <thead>
+            <tr>
+                    <th class="tbaslik">Id</th>
+                    <th class="tbaslik">Calculation</th>
+                    <th class="tbaslik">Result</th>
+                    <th class="tbaslik">Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                        <td class="telement">@item.Id</td>
+                        <td class="telement">@item.Expression</td>
+                        <td class="telement">@item.Result</td>
+                        <td class="telement">@item.Timestamp</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </di>
+</body>
+</html>

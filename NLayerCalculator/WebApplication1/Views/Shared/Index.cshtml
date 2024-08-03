@@ -1,0 +1,254 @@
+﻿@model Calculator.CommonLayer.Dto.AddDto
+
+@{
+    ViewBag.Title = "Hesap Makinesi";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+
+    <script>
+
+        function addToExpression(value) {
+            var expressionBox = document.getElementById('Expression');
+            expressionBox.value += value;
+        }
+
+        function clearExpression() {
+            var expressionBox = document.getElementById('Expression');
+            var resultBox = document.getElementById('Result');
+            expressionBox.value = '';
+            resultBox.value = '';
+        } 
+     
+
+    </script>
+    <style>
+        .icon {
+            color: azure;
+            padding-top:4px;
+            padding-right:5px;
+            
+        }
+
+        .calc {
+            color: yellow;
+            font-weight: 500;
+        }
+
+        .sa {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding-left: 7px;
+            padding-top: 5px;
+        }
+
+        .s {
+            color: white;
+        }
+
+
+        .divspan {
+            color: black;
+            font-weight: bold;
+        }
+
+        .divoperator {
+            background-color: azure !important;
+        }
+
+            .divoperator:hover {
+                background-color: antiquewhite !important;
+            }
+
+        .equal-key:hover {
+            background-color: dodgerblue !important;
+        }
+
+        .suboperator:hover {
+            background-color: darkred !important;
+        }
+
+        .addoperator:hover {
+            background-color: darkgreen !important;
+        }
+
+        .muloperator:hover {
+            background-color: darkgoldenrod !important;
+        }
+
+        .suboperator {
+            background-color: red !important;
+            font-weight: bold;
+        }
+
+        .muloperator {
+            background-color: #F9D806 !important;
+            font-weight: bold;
+        }
+
+        .addoperator {
+            background-color: green !important;
+            font-weight: bold;
+        }
+
+        body {
+            background-image: url('@Url.Content("~/img/image.jpg")') !important;
+            background-size: cover !important;
+            background-repeat: no-repeat !important;
+            background-attachment: fixed !important;
+            background-position: center !important;
+            background-color: #2C2C2C;
+        }
+
+        .calculator {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 320px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 10px;
+        }
+
+        .expression input{
+            background-color: #333 !important;
+            border: none;
+            color: gray;
+            width: 100%;
+            padding-bottom:5px;
+            font-size: 16px;
+            text-align: right;
+
+        }
+        .result input{
+            background-color: #333 !important;
+            border:none;
+            color:#fff;
+            width:100%;
+            padding-bottom:10px;
+            font-size:24px;
+            text-align:right;
+        }
+        .keys {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .equal-key {
+            background-color: deepskyblue !important;
+            font-weight: bold;
+        }
+
+        .key {
+            padding: 15px;
+            font-size: 18px;
+            background-color: #444;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .key:hover {
+                background-color: #555;
+            }
+
+        .equal-key {
+            grid-column: span 4;
+        }
+
+        .display {
+            margin-bottom: 10px;
+            text-align: right;
+        }
+
+        .a {
+            display: flex;
+            flex-direction: column;
+            position:relative;
+        }
+        .calctext{
+           
+            top:0;
+            left:0;
+            position:absolute;
+            color:azure;
+            display:flex;
+            padding-left:10px;
+
+        }
+       .text{
+            background: linear-gradient(to right, yellow, azure);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+       }
+       .calc{
+           color:white;
+       }
+    </style>
+</head>
+<body>
+   
+        
+        <div class="calculator">
+        <div class="calctext">
+            <i class="icon fa-solid fa-calculator"></i>Web<span class="text">Calculator</span></div>
+            <div class="a">
+          
+            @using (Html.BeginForm("Index", "Calculator", FormMethod.Post))
+            {
+                <div class="expression">
+                   
+                    @Html.TextBox("Expression", null, new { @class = "form-control", id = "Expression", type = "text", @readonly = "readonly" })
+                </div>
+                <div class="result">
+                   
+                    @Html.TextBoxFor( model => model.Result, new { @class = "form-control", id="Result", type = "text", disabled = "disabled" })
+                </div>
+                <div class="keys"> 
+               
+                    <button type="button" class="key" onclick="addToExpression('1')">1</button>
+                    <button type="button" class="key" onclick="addToExpression('2')">2</button>
+                    <button type="button" class="key" onclick="addToExpression('3')">3</button>
+                    <button type="button" class="key addoperator" onclick="addToExpression('+')">+</button>
+               
+                    <button type="button" class="key" onclick="addToExpression('4')">4</button>
+                    <button type="button" class="key" onclick="addToExpression('5')">5</button>
+                    <button type="button" class="key" onclick="addToExpression('6')">6</button>
+                    <button type="button" class="key suboperator" onclick="addToExpression('-')">-</button>
+                
+              
+                    <button type="button" class="key" onclick="addToExpression('7')">7</button>
+                    <button type="button" class="key" onclick="addToExpression('8')">8</button>
+                    <button type="button" class="key" onclick="addToExpression('9')">9</button>
+                    <button type="button" class="key muloperator" onclick="addToExpression('*')">x</button>
+
+                    <button type="button" class="key operator" onclick="clearExpression()">C</button>
+
+                    <button type="button" class="key" onclick="addToExpression('0')">0</button>
+                   
+                    <button class="key" type="button" onclick="addToExpression('.')">.</button>
+
+                    <button type="button" class="key divoperator" onclick="addToExpression('/')"><span class="divspan">/</span></button>
+
+                    <button type="submit" class="key operator equal-key" >=</button>
+                </div>
+              
+                
+            }
+            </div>
+        </div>
+   
+
+</body>
+</html>
