@@ -1,20 +1,20 @@
 ﻿using BusinessLayer;
-using Calculator.CommonLayer.Dto;
-using DataAccessLayer.Repositories;
+using CommonLayer.Entities;
+using DataAccessLayer.Data;
+using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 
 namespace Calculator.Business
 {
-
     public class CalculatorService : ICalculatorService
     {
+        private readonly AppDbContext _context;
 
-        ICalculationHistoryRepository _historyRepository;
-
-        public CalculatorService(ICalculationHistoryRepository historyRepository)
+        public CalculatorService(AppDbContext context)
         {
-            _historyRepository = historyRepository;
+            _context = context;
         }
+
         public async Task<double> EvaluateExpression(string expression)
         {
             var cleanedExpression = CleanExpression(expression);
@@ -45,14 +45,12 @@ namespace Calculator.Business
                 }
             }
 
-            return await EvaluateOperators(numbers, operators,expression);
+            return await EvaluateOperators(numbers, operators, expression);
         }
         private async Task<double> EvaluateOperators(List<double> numbers, List<char> operators, string expression)
         {
-
-            _historyRepository.AddAsync(new() { Expression = expression, Result = 0 });
-            await _historyRepository.SaveChangesAsync();
-
+            await _context.Set<CalculationHistory>().AddAsync(new() { Expression = expression, Result = 0 });
+            await _context.SaveChangesAsync();
             //first process multiplication and division
             for (int i = 0; i < operators.Count;)
             {
@@ -61,8 +59,8 @@ namespace Calculator.Business
                     double result = operators[i] == '*'
                         ? numbers[i] * numbers[i + 1]
                         : numbers[i] / numbers[i + 1];
-                    _historyRepository.AddAsync(new() { Expression = $"{numbers[i]} {operators[i]} {numbers[i + 1]} = {result}", Result = 0 });
-                    await _historyRepository.SaveChangesAsync();
+                    await _context.Set<CalculationHistory>().AddAsync(new() { Expression = $"{numbers[i]} {operators[i]} {numbers[i + 1]} = {result}", Result = 0 });
+                    await _context.SaveChangesAsync();
 
                     numbers[i] = result;
                     numbers.RemoveAt(i + 1);
@@ -81,8 +79,8 @@ namespace Calculator.Business
                 finalResult = operators[i] == '+'
                     ? finalResult + numbers[i + 1]
                     : finalResult - numbers[i + 1];
-                _historyRepository.AddAsync(new() { Expression = $"{finalResult} {operators[i]} {numbers[i + 1]} = {finalResult}" });
-                await _historyRepository.SaveChangesAsync();
+                await _context.Set<CalculationHistory>().AddAsync(new() { Expression = $"{finalResult} {operators[i]} {numbers[i + 1]} = {finalResult}" });
+                await _context.SaveChangesAsync();
             }
 
             return finalResult;
@@ -97,6 +95,11 @@ namespace Calculator.Business
                 index++;
             }
             return numberString;
+        }
+
+        public async Task<List<CalculationHistory>> GetAllHistory()
+        {
+            return await _context.Set<CalculationHistory>().ToListAsync();
         }
     }
 }

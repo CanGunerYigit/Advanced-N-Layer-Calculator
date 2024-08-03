@@ -56,3 +56,15 @@ C:\Users\TR\source\repos\lastdance\NLayerCalculator\CommonLayer\obj\Debug\net8.0
 C:\Users\TR\source\repos\lastdance\NLayerCalculator\CommonLayer\obj\Debug\net8.0\refint\CommonLayer.dll
 C:\Users\TR\source\repos\lastdance\NLayerCalculator\CommonLayer\obj\Debug\net8.0\CommonLayer.pdb
 C:\Users\TR\source\repos\lastdance\NLayerCalculator\CommonLayer\obj\Debug\net8.0\ref\CommonLayer.dll
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\CommonLayer\bin\Debug\net8.0\CommonLayer.deps.json
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\CommonLayer\bin\Debug\net8.0\CommonLayer.dll
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\CommonLayer\bin\Debug\net8.0\CommonLayer.pdb
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\CommonLayer\obj\Debug\net8.0\CommonLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\CommonLayer\obj\Debug\net8.0\CommonLayer.AssemblyInfoInputs.cache
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\CommonLayer\obj\Debug\net8.0\CommonLayer.AssemblyInfo.cs
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\CommonLayer\obj\Debug\net8.0\CommonLayer.csproj.CoreCompileInputs.cache
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\CommonLayer\obj\Debug\net8.0\CommonLayer.sourcelink.json
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\CommonLayer\obj\Debug\net8.0\CommonLayer.dll
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\CommonLayer\obj\Debug\net8.0\refint\CommonLayer.dll
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\CommonLayer\obj\Debug\net8.0\CommonLayer.pdb
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\CommonLayer\obj\Debug\net8.0\ref\CommonLayer.dll

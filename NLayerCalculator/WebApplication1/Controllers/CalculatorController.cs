@@ -1,10 +1,7 @@
 ﻿using BusinessLayer;
 using Calculator.CommonLayer.Dto;
 using CommonLayer.Entities;
-using DataAccessLayer.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using System.Data;
-using System.Text.RegularExpressions;
 
 namespace Calculator.Web.Controllers
 {
@@ -12,16 +9,14 @@ namespace Calculator.Web.Controllers
     {
         private CalculationHistory calculationHistory;
         private readonly AddDto addDto;
-        private ICalculationHistoryRepository _calculationHistoryRepository;
         private ICalculatorService _calculationHistoryService;
 
 
-        public CalculatorController(ICalculationHistoryRepository calculationHistoryRepository, ICalculatorService calculationHistoryService)
+        public CalculatorController(ICalculatorService calculationHistoryService)
         {
             addDto = new();
             calculationHistory = new();
-            _calculationHistoryRepository = calculationHistoryRepository;
-            _calculationHistoryService= calculationHistoryService;
+            _calculationHistoryService = calculationHistoryService;
         }
 
         [HttpGet]
@@ -43,9 +38,9 @@ namespace Calculator.Web.Controllers
 
             }
 
-           
-           double value= await  _calculationHistoryService.EvaluateExpression(expression);
-            AddDto addDto2= new();
+
+            double value = await _calculationHistoryService.EvaluateExpression(expression);
+            AddDto addDto2 = new();
             addDto2.Result = value;
 
             return View(addDto2);
@@ -55,9 +50,9 @@ namespace Calculator.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> GetHistory()
         {
-            return View(await _calculationHistoryRepository.GetAllAsync());
+            return View(await _calculationHistoryService.GetAllHistory());
         }
 
-       
+
     }
 }
