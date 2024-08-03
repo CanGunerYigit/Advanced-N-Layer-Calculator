@@ -306,3 +306,15 @@ C:\Users\TR\source\repos\lastdance\NLayerCalculator\WebApplication1\obj\Debug\ne
 C:\Users\TR\source\repos\lastdance\NLayerCalculator\WebApplication1\obj\Debug\net8.0\WebApplication1.pdb
 C:\Users\TR\source\repos\lastdance\NLayerCalculator\WebApplication1\obj\Debug\net8.0\WebApplication1.genruntimeconfig.cache
 C:\Users\TR\source\repos\lastdance\NLayerCalculator\WebApplication1\obj\Debug\net8.0\ref\WebApplication1.dll
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\WebApplication1\obj\Debug\net8.0\WebApplication1.csproj.AssemblyReference.cache
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\WebApplication1\obj\Debug\net8.0\WebApplication1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\WebApplication1\obj\Debug\net8.0\WebApplication1.AssemblyInfoInputs.cache
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\WebApplication1\obj\Debug\net8.0\WebApplication1.AssemblyInfo.cs
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\WebApplication1\obj\Debug\net8.0\WebApplication1.csproj.CoreCompileInputs.cache
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\WebApplication1\obj\Debug\net8.0\WebApplication1.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\WebApplication1\obj\Debug\net8.0\WebApplication1.RazorAssemblyInfo.cache
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\WebApplication1\obj\Debug\net8.0\WebApplication1.RazorAssemblyInfo.cs
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\WebApplication1\obj\Debug\net8.0\WebApplication1.sourcelink.json
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\WebApplication1\obj\Debug\net8.0\WebApplication1.dll
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\WebApplication1\obj\Debug\net8.0\refint\WebApplication1.dll
+C:\Users\Casper\Source\Repos\asd\NLayerCalculator\WebApplication1\obj\Debug\net8.0\WebApplication1.pdb

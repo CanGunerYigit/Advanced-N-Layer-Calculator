@@ -1,7 +1,6 @@
 using BusinessLayer;
 using Calculator.Business;
 using DataAccessLayer.Data;
-using DataAccessLayer.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +11,6 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 builder.Services.AddDbContext<AppDbContext>(context => context.UseSqlServer(builder.Configuration.GetConnectionString("DbUrl")));
 
-builder.Services.AddScoped<ICalculationHistoryRepository, CalculationHistoryRepository>();
 builder.Services.AddScoped<ICalculatorService, CalculatorService>();
 
 
